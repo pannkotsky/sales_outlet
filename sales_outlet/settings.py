@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # local
     'common.apps.CommonConfig',
+    'customers.apps.CustomersConfig',
 ]
 
 MIDDLEWARE = [

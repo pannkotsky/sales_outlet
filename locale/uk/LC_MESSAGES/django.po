@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 17:00+0200\n"
+"POT-Creation-Date: 2017-11-26 18:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,7 +68,7 @@ msgstr ""
 "%(postal_code)s м. %(city_name)s, %(street_type)s %(street_name)s, "
 "%(street_number)s%(additional)s"
 
-#: common/models.py:55
+#: common/models.py:55 customers/models.py:11
 msgid "Address"
 msgstr "Адреса"
 
@@ -93,7 +93,7 @@ msgstr "Назва банку"
 msgid "%(number)s in %(bank_name)s, bank code %(bank_code)s"
 msgstr "%(number)s у %(bank_name)s, код банку %(bank_code)s"
 
-#: common/models.py:78
+#: common/models.py:78 customers/models.py:13
 msgid "Bank account"
 msgstr "Розрахунковий рахунок"
 
@@ -105,26 +105,26 @@ msgstr "Розрахункові рахунки"
 msgid "Postal code may only contain digits"
 msgstr "Поштовий індекс може містити тільки цифри"
 
-#: customers/models.py:6
-msgid "Code"
-msgstr "Код"
-
-#: customers/models.py:7
-msgid "Name"
-msgstr "Назва"
-
-#: customers/models.py:10
-msgid "Customer"
-msgstr "Споживач"
-
-#: customers/models.py:11
+#: customers/apps.py:7 customers/models.py:20
 msgid "Customers"
 msgstr "Споживачі"
 
-#: sales_outlet/settings.py:129
+#: customers/models.py:8
+msgid "Code"
+msgstr "Код"
+
+#: customers/models.py:9
+msgid "Name"
+msgstr "Назва"
+
+#: customers/models.py:19
+msgid "Customer"
+msgstr "Споживач"
+
+#: sales_outlet/settings.py:130
 msgid "English"
 msgstr "Англійська"
 
-#: sales_outlet/settings.py:130
+#: sales_outlet/settings.py:131
 msgid "Ukrainian"
 msgstr "Українська"
