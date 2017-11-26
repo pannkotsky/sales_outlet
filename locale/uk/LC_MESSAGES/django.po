@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 18:24+0200\n"
+"POT-Creation-Date: 2017-11-26 18:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,11 +109,11 @@ msgstr "Поштовий індекс може містити тільки ци�
 msgid "Customers"
 msgstr "Споживачі"
 
-#: customers/models.py:8
+#: customers/models.py:8 products/models.py:8
 msgid "Code"
 msgstr "Код"
 
-#: customers/models.py:9
+#: customers/models.py:9 products/models.py:9
 msgid "Name"
 msgstr "Назва"
 
@@ -121,10 +121,22 @@ msgstr "Назва"
 msgid "Customer"
 msgstr "Споживач"
 
-#: sales_outlet/settings.py:130
+#: products/apps.py:7 products/models.py:15
+msgid "Products"
+msgstr "Вироби"
+
+#: products/models.py:10
+msgid "Price"
+msgstr "Вартість"
+
+#: products/models.py:14
+msgid "Product"
+msgstr "Виріб"
+
+#: sales_outlet/settings.py:134
 msgid "English"
 msgstr "Англійська"
 
-#: sales_outlet/settings.py:131
+#: sales_outlet/settings.py:135
 msgid "Ukrainian"
 msgstr "Українська"

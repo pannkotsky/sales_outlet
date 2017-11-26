@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     # local
     'common.apps.CommonConfig',
     'customers.apps.CustomersConfig',
+    'products.apps.ProductsConfig',
+
+    #third-party
+    'djmoney',
 ]
 
 MIDDLEWARE = [
