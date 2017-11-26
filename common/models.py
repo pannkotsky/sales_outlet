@@ -6,7 +6,7 @@ from .validators import DigitValidator
 
 
 class StreetType(models.Model):
-    short_name = models.CharField(verbose_name=_('Short name'), max_length=5, primary_key=True)
+    short_name = models.CharField(verbose_name=_('Short name'), max_length=5, unique=True)
     full_name = models.CharField(verbose_name=_('Full name'), max_length=10, unique=True)
 
     def __str__(self):
@@ -19,7 +19,7 @@ class StreetType(models.Model):
 
 def get_default_street_type():
     try:
-        return StreetType.objects.get(short_name='st.')
+        return StreetType.objects.get(short_name_en='st.')
     except StreetType.DoesNotExist:
         return None
 

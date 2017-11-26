@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 16:23+0200\n"
+"POT-Creation-Date: 2017-11-26 17:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,6 +60,7 @@ msgid "Additional info"
 msgstr "Додатково"
 
 #: common/models.py:44
+#, python-format
 msgid ""
 "%(postal_code)s %(city_name)s, %(street_name)s %(street_type)s, "
 "%(street_number)s%(additional)s"
@@ -119,3 +120,11 @@ msgstr "Споживач"
 #: customers/models.py:11
 msgid "Customers"
 msgstr "Споживачі"
+
+#: sales_outlet/settings.py:129
+msgid "English"
+msgstr "Англійська"
+
+#: sales_outlet/settings.py:130
+msgid "Ukrainian"
+msgstr "Українська"
