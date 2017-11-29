@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-29 21:04+0200\n"
+"POT-Creation-Date: 2017-11-29 21:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,9 +117,37 @@ msgstr "Код"
 msgid "Name"
 msgstr "Назва"
 
-#: customers/models.py:19
+#: customers/models.py:19 documents/models.py:14
 msgid "Customer"
 msgstr "Споживач"
+
+#: documents/apps.py:7
+msgid "Documents"
+msgstr "Документи"
+
+#: documents/models.py:12
+msgid "Number"
+msgstr "Номер"
+
+#: documents/models.py:13
+msgid "Date"
+msgstr "Дата"
+
+#: documents/models.py:15 products/models.py:22
+msgid "Product"
+msgstr "Виріб"
+
+#: documents/models.py:18
+msgid "#%(number)s from %(date)s, %(customer)s"
+msgstr "№%(number)s від %(date)s, %(customer)s"
+
+#: documents/models.py:25
+msgid "Contract"
+msgstr "Договір"
+
+#: documents/models.py:26
+msgid "Contracts"
+msgstr "Договори"
 
 #: products/apps.py:7 products/models.py:23
 msgid "Products"
@@ -129,18 +157,14 @@ msgstr "Вироби"
 msgid "Price"
 msgstr "Ціна"
 
-#: products/models.py:22
-msgid "Product"
-msgstr "Виріб"
-
 #: products/models.py:28 products/models.py:29
 msgid "Packaging"
 msgstr "Тара"
 
-#: sales_outlet/settings.py:134
+#: sales_outlet/settings.py:135
 msgid "English"
 msgstr "Англійська"
 
-#: sales_outlet/settings.py:135
+#: sales_outlet/settings.py:136
 msgid "Ukrainian"
 msgstr "Українська"

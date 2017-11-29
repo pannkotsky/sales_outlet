@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # local
     'common.apps.CommonConfig',
     'customers.apps.CustomersConfig',
+    'documents.apps.DocumentsConfig',
     'products.apps.ProductsConfig',
 
     # third-party
