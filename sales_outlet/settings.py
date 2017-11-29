@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'products.apps.ProductsConfig',
 
-    #third-party
+    # third-party
     'djmoney',
 ]
 

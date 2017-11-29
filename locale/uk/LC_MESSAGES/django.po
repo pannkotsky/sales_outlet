@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-26 18:46+0200\n"
+"POT-Creation-Date: 2017-11-29 21:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,17 +121,21 @@ msgstr "Назва"
 msgid "Customer"
 msgstr "Споживач"
 
-#: products/apps.py:7 products/models.py:15
+#: products/apps.py:7 products/models.py:23
 msgid "Products"
 msgstr "Вироби"
 
 #: products/models.py:10
 msgid "Price"
-msgstr "Вартість"
+msgstr "Ціна"
 
-#: products/models.py:14
+#: products/models.py:22
 msgid "Product"
 msgstr "Виріб"
+
+#: products/models.py:28 products/models.py:29
+msgid "Packaging"
+msgstr "Тара"
 
 #: sales_outlet/settings.py:134
 msgid "English"
