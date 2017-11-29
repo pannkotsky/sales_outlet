@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     # third-party
     'djmoney',
+    'select2',
 ]
 
 MIDDLEWARE = [
