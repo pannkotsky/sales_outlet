@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import RedirectView
 
 from select2 import urls as select2_urls
 
 from products.views import ShipmentsView
+
+admin.site.site_header = _('Sales Outlet')
+admin.site.site_title = _('Sales Outlet')
+admin.site.index_title = _('Sales Outlet')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

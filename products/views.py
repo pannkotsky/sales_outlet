@@ -1,5 +1,6 @@
 import datetime
 
+from django.utils.translation import ugettext as _
 from django.views.generic import DetailView
 
 from braces.views import StaffuserRequiredMixin
@@ -13,6 +14,8 @@ class ShipmentsView(StaffuserRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ShipmentsView, self).get_context_data(**kwargs)
+        context['site_header'] = _('Sales Outlet')
+        context['site_title'] = _('Sales Outlet')
         invoices = self.object.invoices.all()
         date_string = self.request.GET.get('date')
         if date_string:
