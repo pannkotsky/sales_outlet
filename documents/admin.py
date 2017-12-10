@@ -24,3 +24,4 @@ class InvoiceAdmin(admin.ModelAdmin):
     formfield_overrides = {
         ForeignKey: {'widget': Select},
     }
+    list_filter = ('date', 'product')

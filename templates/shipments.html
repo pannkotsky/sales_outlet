@@ -9,23 +9,27 @@
 {% block breadcrumbs %}
     <div class="breadcrumbs">
         <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-        &rsaquo; {% trans 'Shipments' %}
-        &rsaquo; <a href="/shipments/{{ object.pk }}/">{{ object.name }} {{ object.code }}</a>
+        &rsaquo; <a href="/shipments/">{% trans 'Shipments' %}</a>
+        {% if product %}
+            &rsaquo; <a href="/shipments/{{ product.pk }}/">{{ product }}</a>
+        {% endif %}
         {% if date_string and date %}
-            &rsaquo; <a href="/shipments/{{ object.pk }}/?date={{ date_string }}">{{ date }}</a>
+            &rsaquo; <a href="/shipments/{% if product %}{{ product.pk }}/{% endif %}?date={{ date_string }}">{{ date }}</a>
         {% endif %}
     </div>
 {% endblock %}
 
 {% block content %}
     <h1>
-        {% trans 'Shipments list for' %} {{ object.name }} {{ object.code }}
+        {% trans 'Shipments list' %}
+        {% if product %}{% trans ' for' %} {{ product }}{% endif %}
         {% if date %}{% trans ' on' %} {{ date }}{% endif %}
     </h1>
 
     <table>
         <thead>
             <tr>
+                <th>{% trans 'Product' %}</th>
                 <th>{% trans 'Date' %}</th>
                 <th>{% trans 'Invoice' %}</th>
                 <th>{% trans 'Contract' %}</th>
@@ -38,6 +42,7 @@
         <tbody>
             {% for item in invoices %}
             <tr>
+                <td>{{ item.product }}</td>
                 <td>{{ item.date }}</td>
                 <td>{{ item.number }}</td>
                 <td>{{ item.contract }}</td>
@@ -48,7 +53,7 @@
             </tr>
             {% endfor %}
             <tr style="font-weight: bold">
-                <td colspan="6">{% trans 'Total' %} {% trans 'Cost' %}</td>
+                <td colspan="7">{% trans 'Total' %} {% trans 'Cost' %}</td>
                 <td>{{ total_cost }}</td>
             </tr>
         </tbody>
