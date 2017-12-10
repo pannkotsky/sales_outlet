@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import RedirectView
 
 from select2 import urls as select2_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^select2/', include(select2_urls, namespace='select2')),
+    url(r'^$', RedirectView.as_view(pattern_name='admin:index'))
 ]
