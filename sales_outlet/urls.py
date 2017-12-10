@@ -19,8 +19,11 @@ from django.views.generic import RedirectView
 
 from select2 import urls as select2_urls
 
+from products.views import ShipmentsView
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^shipments/(?P<pk>.*)/$', ShipmentsView.as_view(), name='shipments'),
     url(r'^select2/', include(select2_urls, namespace='select2')),
     url(r'^$', RedirectView.as_view(pattern_name='admin:index'))
 ]

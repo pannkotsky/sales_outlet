@@ -1,0 +1,52 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; {% trans 'Shipments' %}
+        &rsaquo; <a href="/shipments/{{ object.pk }}/">{{ object.name }} {{ object.code }}</a>
+        {% if date_string and date %}
+            &rsaquo; <a href="/shipments/{{ object.pk }}/?date={{ date_string }}">{{ date }}</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% trans 'Shipments list for' %} {{ object.name }} {{ object.code }}
+        {% if date %}{% trans ' on' %} {{ date }}{% endif %}
+    </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans 'Date' %}</th>
+                <th>{% trans 'Invoice' %}</th>
+                <th>{% trans 'Contract' %}</th>
+                <th>{% trans 'Customer' %}</th>
+                <th>{% trans 'Product quantity' %}</th>
+                <th>{% trans 'Packaging' %}</th>
+                <th>{% trans 'Cost' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in invoices %}
+            <tr>
+                <td>{{ item.date }}</td>
+                <td>{{ item.number }}</td>
+                <td>{{ item.contract }}</td>
+                <td>{{ item.customer }}</td>
+                <td>{{ item.product_quantity }}</td>
+                <td>{{ item.packaging }}</td>
+                <td>{{ item.cost }}</td>
+            </tr>
+            {% endfor %}
+            <tr style="font-weight: bold">
+                <td colspan="6">{% trans 'Total' %} {% trans 'Cost' %}</td>
+                <td>{{ total_cost }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
