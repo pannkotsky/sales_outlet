@@ -34,8 +34,8 @@
                 <th>{% trans 'Invoice' %}</th>
                 <th>{% trans 'Contract' %}</th>
                 <th>{% trans 'Customer' %}</th>
-                <th>{% trans 'Product quantity' %}</th>
                 <th>{% trans 'Packaging' %}</th>
+                <th>{% trans 'Product quantity' %}</th>
                 <th>{% trans 'Cost' %}</th>
             </tr>
         </thead>
@@ -47,13 +47,14 @@
                 <td>{{ item.number }}</td>
                 <td>{{ item.contract }}</td>
                 <td>{{ item.customer }}</td>
-                <td>{{ item.product_quantity }}</td>
                 <td>{{ item.packaging }}</td>
+                <td>{{ item.product_quantity }}</td>
                 <td>{{ item.cost }}</td>
             </tr>
             {% endfor %}
             <tr style="font-weight: bold">
-                <td colspan="7">{% trans 'Total' %} {% trans 'Cost' %}</td>
+                <td colspan="6">{% trans 'Total' %} {% trans 'Cost' %}</td>
+                <td>{% if total_quantity %}{{ total_quantity }}{% endif %}</td>
                 <td>{{ total_cost }}</td>
             </tr>
         </tbody>
