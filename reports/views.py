@@ -2,7 +2,7 @@ import datetime
 
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
-from django.views.generic import ListView
+from django.views.generic import TemplateView
 
 from braces.views import StaffuserRequiredMixin
 
@@ -11,9 +11,8 @@ from products.models import Product
 from .forms import ShipmentsFilterForm
 
 
-class ShipmentsView(StaffuserRequiredMixin, ListView):
+class ShipmentsView(StaffuserRequiredMixin, TemplateView):
     template_name = 'shipments.html'
-    model = Product
 
     def get_context_data(self, **kwargs):
         context = super(ShipmentsView, self).get_context_data(**kwargs)
