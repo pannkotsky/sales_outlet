@@ -20,7 +20,7 @@ from django.views.generic import RedirectView
 
 from select2 import urls as select2_urls
 
-from documents.views import ShipmentsView
+from reports.views import ShipmentsView
 
 admin.site.site_header = _('Sales Outlet')
 admin.site.site_title = _('Sales Outlet')
