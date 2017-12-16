@@ -1,3 +1,10 @@
-from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
-# Create your models here.
+from documents.models import Invoice
+
+
+class Shipment(Invoice):
+    class Meta:
+        proxy = True
+        verbose_name = _('Shipment')
+        verbose_name_plural = _('Shipments')

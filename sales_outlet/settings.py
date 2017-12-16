@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'customers.apps.CustomersConfig',
     'documents.apps.DocumentsConfig',
     'products.apps.ProductsConfig',
+    'reports.apps.ReportsConfig',
 
     # third-party
     'djmoney',
