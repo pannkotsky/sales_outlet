@@ -1,0 +1,13 @@
+#changelist .actions select {
+    vertical-align: middle;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+#changelist .actions label {
+    margin-right: 10px;
+}
+
+#changelist .actions .button {
+    margin-left: 10px;
+}

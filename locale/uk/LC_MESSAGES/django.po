@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-10 21:00+0200\n"
+"POT-Creation-Date: 2017-12-16 14:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,7 +118,7 @@ msgid "Name"
 msgstr "Назва"
 
 #: customers/models.py:19 documents/models.py:15 documents/models.py:55
-#: templates/shipments.html:36
+#: templates/shipments.html:67
 msgid "Customer"
 msgstr "Споживач"
 
@@ -126,13 +126,19 @@ msgstr "Споживач"
 msgid "Documents"
 msgstr "Документи"
 
+#: documents/forms.py:24 documents/models.py:41 products/models.py:22
+#: templates/shipments.html:63
+msgid "Product"
+msgstr "Виріб"
+
+#: documents/forms.py:33 documents/models.py:13 documents/models.py:37
+#: templates/shipments.html:64
+msgid "Date"
+msgstr "Дата"
+
 #: documents/models.py:12 documents/models.py:36
 msgid "Number"
 msgstr "Номер"
-
-#: documents/models.py:13 documents/models.py:37 templates/shipments.html:33
-msgid "Date"
-msgstr "Дата"
 
 #: documents/models.py:17 products/apps.py:7 products/models.py:23
 msgid "Products"
@@ -147,7 +153,7 @@ msgstr "№%(number)s від %(date)s, %(customer)s"
 msgid "Products list"
 msgstr "Перелік виробів"
 
-#: documents/models.py:31 documents/models.py:39 templates/shipments.html:35
+#: documents/models.py:31 documents/models.py:39 templates/shipments.html:66
 msgid "Contract"
 msgstr "Договір"
 
@@ -155,25 +161,21 @@ msgstr "Договір"
 msgid "Contracts"
 msgstr "Договори"
 
-#: documents/models.py:41 products/models.py:22 templates/shipments.html:32
-msgid "Product"
-msgstr "Виріб"
-
-#: documents/models.py:42 templates/shipments.html:37
+#: documents/models.py:42 templates/shipments.html:69
 msgid "Product quantity"
 msgstr "Кількість виробу"
 
 #: documents/models.py:44 products/models.py:28 products/models.py:29
-#: templates/shipments.html:38
+#: templates/shipments.html:68
 msgid "Packaging"
 msgstr "Тара"
 
-#: documents/models.py:59 templates/shipments.html:39
-#: templates/shipments.html:56
+#: documents/models.py:59 templates/shipments.html:70
+#: templates/shipments.html:87
 msgid "Cost"
 msgstr "Вартість"
 
-#: documents/models.py:62 templates/shipments.html:34
+#: documents/models.py:62 templates/shipments.html:65
 msgid "Invoice"
 msgstr "ТТН"
 
@@ -181,7 +183,7 @@ msgstr "ТТН"
 msgid "Invoices"
 msgstr "ТТН"
 
-#: documents/views.py:19 documents/views.py:20 sales_outlet/urls.py:25
+#: documents/views.py:20 documents/views.py:21 sales_outlet/urls.py:25
 #: sales_outlet/urls.py:26 sales_outlet/urls.py:27
 msgid "Sales Outlet"
 msgstr "Склад збуту"
@@ -198,26 +200,30 @@ msgstr "Англійська"
 msgid "Ukrainian"
 msgstr "Українська"
 
-#: templates/shipments.html:5 templates/shipments.html:12
+#: templates/shipments.html:22 templates/shipments.html:29
 msgid "Shipments"
 msgstr "Відвантаження"
 
-#: templates/shipments.html:11
+#: templates/shipments.html:28
 msgid "Home"
 msgstr ""
 
-#: templates/shipments.html:24
+#: templates/shipments.html:45
 msgid "Shipments list"
 msgstr "Список відвантажень"
 
-#: templates/shipments.html:25
+#: templates/shipments.html:46
 msgid " for"
 msgstr " за виробом"
 
-#: templates/shipments.html:26
+#: templates/shipments.html:47
 msgid " on"
 msgstr " на"
 
-#: templates/shipments.html:56
+#: templates/shipments.html:55
+msgid "Apply"
+msgstr "Застосувати"
+
+#: templates/shipments.html:87
 msgid "Total"
-msgstr "Загальна"
+msgstr "Всього"

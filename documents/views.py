@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from braces.views import StaffuserRequiredMixin
 
 from products.models import Product
+from .forms import ShipmentsFilterForm
 from .models import Invoice
 
 
@@ -25,7 +26,7 @@ class ShipmentsView(StaffuserRequiredMixin, ListView):
             date = datetime.datetime.strptime(date_string, '%d.%m.%Y').date()
             context['date'] = date
             invoices = invoices.filter(date=date)
-        product_code = self.kwargs.get('product_code')
+        product_code = self.request.GET.get('product')
         if product_code:
             product = get_object_or_404(Product, pk=product_code)
             context['product'] = product
@@ -34,4 +35,8 @@ class ShipmentsView(StaffuserRequiredMixin, ListView):
         context['invoices'] = invoices
         total_cost = sum([item.cost() for item in invoices])
         context['total_cost'] = total_cost
+        context['form'] = ShipmentsFilterForm(initial={
+            'product': product_code or '',
+            'date': date_string or ''
+        })
         return context

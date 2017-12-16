@@ -29,7 +29,6 @@ admin.site.index_title = _('Sales Outlet')
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^shipments/$', ShipmentsView.as_view(), name='shipments'),
-    url(r'^shipments/(?P<product_code>.*)/$', ShipmentsView.as_view(), name='shipments'),
     url(r'^select2/', include(select2_urls, namespace='select2')),
     url(r'^$', RedirectView.as_view(pattern_name='admin:index'))
 ]
