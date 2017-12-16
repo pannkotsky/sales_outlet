@@ -5,7 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 from babel.dates import format_date
 
 from customers.models import Customer
-from products.models import Product, Packaging
 
 
 class Contract(models.Model):
@@ -13,7 +12,7 @@ class Contract(models.Model):
     date = models.DateField(verbose_name=_('Date'))
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='contracts',
                                  verbose_name=_('Customer'))
-    products = models.ManyToManyField(Product, related_name='contracts',
+    products = models.ManyToManyField('products.Product', related_name='contracts',
                                       verbose_name=_('Products'))
 
     def __str__(self):
@@ -37,10 +36,10 @@ class Invoice(models.Model):
     date = models.DateField(verbose_name=_('Date'))
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE, related_name='invoices',
                                  verbose_name=_('Contract'))
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='invoices',
+    product = models.ForeignKey('products.Product', on_delete=models.CASCADE, related_name='invoices',
                                 verbose_name=_('Product'))
     product_quantity = models.IntegerField(verbose_name=_('Product quantity'))
-    packaging = models.ForeignKey(Packaging, on_delete=models.SET_NULL, related_name='invoices',
+    packaging = models.ForeignKey('products.Packaging', on_delete=models.SET_NULL, related_name='invoices',
                                   null=True, blank=True, verbose_name=_('Packaging'))
 
     def __str__(self):

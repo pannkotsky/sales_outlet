@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static admin_modify %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
+    <script src="{% url 'admin:jsi18n' %}"></script>
+    <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+{% endblock %}

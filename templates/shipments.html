@@ -1,21 +1,5 @@
-{% extends "admin/base_site.html" %}
-{% load i18n static admin_modify %}
-
-{% block extrahead %}
-    {{ block.super }}
-    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>
-    <script src="{% url 'admin:jsi18n' %}"></script>
-    <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
-{% endblock %}
-
-{% block extrastyle %}
-    {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/changelists.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
-{% endblock %}
+{% extends "base.html" %}
+{% load i18n static admin_modify filters %}
 
 {% block title %}
     {% trans 'Shipments' %}
@@ -51,7 +35,7 @@
             {{ form.media }}
             <div class="actions">
                 {{ form }}
-                <button type="submit" class="button" title="{% trans 'Apply' %}" name="apply">{% trans 'Apply' %}</button>
+                <button type="submit" class="button" title="{% trans 'Apply' %}">{% trans 'Apply' %}</button>
             </div>
         </form>
     </div>
@@ -70,17 +54,26 @@
             </tr>
         </thead>
         <tbody>
-            {% for item in invoices %}
-            <tr>
-                <td>{{ item.product }}</td>
-                <td>{{ item.date }}</td>
-                <td>{{ item.number }}</td>
-                <td>{{ item.contract }}</td>
-                <td>{{ item.customer }}</td>
-                <td>{{ item.packaging }}</td>
-                <td>{{ item.product_quantity }}</td>
-                <td>{{ item.cost }}</td>
-            </tr>
+            {% for product in products %}
+                {% for item in invoices|get_value:product.code %}
+                    <tr>
+                        <td>{{ item.product }}</td>
+                        <td>{{ item.date }}</td>
+                        <td>{{ item.number }}</td>
+                        <td>{{ item.contract }}</td>
+                        <td>{{ item.customer }}</td>
+                        <td>{{ item.packaging }}</td>
+                        <td>{{ item.product_quantity }}</td>
+                        <td>{{ item.cost }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="font-weight: bold">
+                    <td colspan="6">{{ product }}</td>
+                    {% with shipments_stats|get_value:product.code as stats %}
+                        <td>{{ stats.quantity }}</td>
+                        <td>{{ stats.cost }}</td>
+                    {% endwith %}
+                </tr>
             {% endfor %}
             <tr style="font-weight: bold">
                 <td colspan="6">{% trans 'Total' %}</td>
