@@ -7,9 +7,25 @@ from .forms import InvoiceAdminForm
 from .models import Contract, Invoice
 
 
+class InvoiceInline(admin.TabularInline):
+    model = Invoice
+    formfield_overrides = {
+        ForeignKey: {'widget': Select},
+    }
+
+
+class ContractInline(admin.TabularInline):
+    model = Contract
+    formfield_overrides = {
+        ForeignKey: {'widget': Select},
+        ManyToManyField: {'widget': SelectMultiple},
+    }
+
+
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):
     list_display = ('number', 'date', 'customer', 'products_list')
+    inlines = [InvoiceInline]
     formfield_overrides = {
         ForeignKey: {'widget': Select},
         ManyToManyField: {'widget': SelectMultiple},
