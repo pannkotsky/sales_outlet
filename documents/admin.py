@@ -4,7 +4,7 @@ from django.db.models import ForeignKey, ManyToManyField
 from select2.forms import Select, SelectMultiple
 
 from .forms import InvoiceAdminForm
-from .models import Contract, Invoice
+from .models import Contract, Invoice, PaymentRequirement
 
 
 class InvoiceInline(admin.TabularInline):
@@ -41,3 +41,10 @@ class InvoiceAdmin(admin.ModelAdmin):
         ForeignKey: {'widget': Select},
     }
     list_filter = ('date', 'product')
+
+
+@admin.register(PaymentRequirement)
+class PaymentRequirementAdmin(admin.ModelAdmin):
+    list_display = ('number', 'date', 'payer', 'amount')
+    fields = ('number', 'date', 'invoice', 'payer', 'account', 'amount', 'payment_destination')
+    readonly_fields = ('payer', 'account', 'amount')
