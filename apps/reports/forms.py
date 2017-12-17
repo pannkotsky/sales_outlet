@@ -1,4 +1,5 @@
 from django.contrib.admin.widgets import AdminDateWidget
+from django.db.utils import ProgrammingError
 from django import forms
 from django.utils.translation import ugettext as _
 
@@ -6,11 +7,14 @@ from products.models import Product
 
 
 def get_product_choices():
-    products = Product.objects.all()
-    choices = [('', '--------')]
-    for product in products:
-        choices.append((product.code, str(product)))
-    return choices
+    try:
+        products = Product.objects.all()
+        choices = [('', '--------')]
+        for product in products:
+            choices.append((product.code, str(product)))
+        return choices
+    except ProgrammingError:
+        return []
 
 
 class ShipmentsFilterForm(forms.Form):

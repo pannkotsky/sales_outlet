@@ -10,8 +10,8 @@ def add_street_types(apps, schema_editor):
     street_types = [
         ('Alley', 'ally.', 'Аллея', 'ал.'),
         ('Arcade', 'arc.', 'Аркада', 'арк.'),
-        ('Avenue', 'ave.', 'Проспект', 'просп.'),
-        ('Boulevard', 'bvd.', 'Бульвар', 'бульв.'),
+        ('Avenue', 'ave.', 'Проспект', 'пр-т.'),
+        ('Boulevard', 'bvd.', 'Бульвар', 'бул.'),
         ('Bypass', 'bypa.', 'Об\'їзд', 'об-д'),
         ('Close', 'cl.', 'Тупик', 'туп.'),
         ('Corner', 'crn.', 'Ріг', 'ріг'),
