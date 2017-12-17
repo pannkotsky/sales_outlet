@@ -1,5 +1,6 @@
 import datetime
 
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
 from django.views.generic import TemplateView
@@ -19,17 +20,16 @@ class ShipmentsView(StaffuserRequiredMixin, TemplateView):
         context['site_header'] = _('Sales Outlet')
         context['site_title'] = _('Sales Outlet')
 
+        invoices = Invoice.objects.all()
+
         date_string = self.request.GET.get('date')
         if date_string:
             context['date_string'] = date_string
             date = datetime.datetime.strptime(date_string, '%d.%m.%Y').date()
             context['date'] = date
-            invoices = Invoice.objects.filter(date=date)
-        else:
-            date = None
-            invoices = Invoice.objects.all()
+            invoices = invoices.filter(date=date)
 
-        products = Product.objects.shipped(date=date)
+        products = Product.objects.all()
 
         product_code = self.request.GET.get('product')
         if product_code:
@@ -37,14 +37,21 @@ class ShipmentsView(StaffuserRequiredMixin, TemplateView):
             product = get_object_or_404(Product, code=product_code)
             context['product'] = product
             invoices = invoices.filter(product__code=product_code)
-            context['total_quantity'] = sum(invoices.values_list('product_quantity', flat=True))
+            context['total_quantity'] = invoices.aggregate(
+                Sum('product_quantity'))['product_quantity__sum']
 
         context['products'] = products
-        context['shipments_stats'] = {}
+        context['product_shipped'] = {}
         context['invoices'] = {}
+        context['product_quantity'] = {}
+        context['product_cost'] = {}
         for p in products:
-            context['shipments_stats'][p.code] = p.shipment_stats(date)
-            context['invoices'][p.code] = invoices.filter(product=p)
+            product_invoices = invoices.filter(product=p)
+            context['product_shipped'][p.code] = bool(product_invoices)
+            context['invoices'][p.code] = product_invoices
+            context['product_quantity'][p.code] = product_invoices.aggregate(
+                Sum('product_quantity'))['product_quantity__sum']
+            context['product_cost'][p.code] = sum([item.cost() for item in product_invoices])
 
         context['total_cost'] = sum([item.cost() for item in invoices])
 
