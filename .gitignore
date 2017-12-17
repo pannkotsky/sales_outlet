@@ -1,6 +1,6 @@
 *.pyc
-*.mo
 staticfiles
 .env
 .idea
 *.sqlite3
+*.log
