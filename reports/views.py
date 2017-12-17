@@ -38,7 +38,7 @@ class ShipmentsView(StaffuserRequiredMixin, TemplateView):
             context['product'] = product
             invoices = invoices.filter(product__code=product_code)
             context['total_quantity'] = invoices.aggregate(
-                Sum('product_quantity'))['product_quantity__sum']
+                total_quantity=Sum('product_quantity'))['total_quantity']
 
         context['products'] = products
         context['product_shipped'] = {}
@@ -50,7 +50,7 @@ class ShipmentsView(StaffuserRequiredMixin, TemplateView):
             context['product_shipped'][p.code] = bool(product_invoices)
             context['invoices'][p.code] = product_invoices
             context['product_quantity'][p.code] = product_invoices.aggregate(
-                Sum('product_quantity'))['product_quantity__sum']
+                total_quantity=Sum('product_quantity'))['total_quantity']
             context['product_cost'][p.code] = sum([item.cost() for item in product_invoices])
 
         context['total_cost'] = sum([item.cost() for item in invoices])
